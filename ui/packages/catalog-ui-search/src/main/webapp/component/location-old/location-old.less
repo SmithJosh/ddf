@@ -4,103 +4,37 @@
   width: auto;
 
   .location-draw {
-    padding: 0px 15px;
-    button {
-      width: 100%;
-    }
+    margin: 10px 0;
+    width: 100%;
   }
 
-  input {
-    width: 12.5rem;
-    font-size: @minimumFontSize !important;
+  .input-group {
+     border: none;
   }
 
-  .input-group > .input-group-addon {
+  .input-group-addon {
     border: none;
-  }
-
-  .ui-multiselect.ui-widget {
-    border: none;
-  }
-
-  div.multiselect span {
-    font-weight: normal;
-    font-size: @minimumFontSize;
-  }
-
-  button.multiselect > span {
-    font-size: @minimumFontSize;
-  }
-
-  .is-loading-geometry-spinner {
-    display: none;
-  }
-
-  &.is-loading-geometry {
-    .is-loading-geometry-spinner {
-      .fa-refresh {
-        margin-left: @minimumSpacing;
-      }
-      display: inline;
-    }    
-  }
-
-  .btn-group {
-    position: relative;
-    margin-bottom: @minimumSpacing !important;
-
-    input {
-      display: none;
-    }
-
-    .fa-circle-o,
-    .fa-circle {
-      display: none !important;
-    }
-
-    label {
-      font-size: @minimumFontSize !important;
-      min-width: @minimumButtonSize;
-      position: static !important;
-      opacity: @minimumOpacity;
-      padding: @minimumSpacing !important;
-    }
-
-    label:hover {
-      background-color: inherit;
-      opacity: 1;
-    }
-
-    .btn:active {
-      box-shadow: none !important;
-    }
-
-    label.active {
-      opacity: 1;
-      box-shadow: none;
-    }
-
-    label.active::after {
-      content: '';
-      position: absolute;
-      bottom: -5px;
-      left: 0px;
-      height: 1px;
-      width: 100%;
-    }
   }
 
   .form-group {
-    margin: 0px !important;
-
     .input-group-addon {
+      display: table-cell;
       font-size: @minimumFontSize;
       padding: 0px @minimumSpacing;
+      height: @minimumButtonSize !important;
+      line-height: @minimumButtonSize !important;
+      width: @minimumButtonSize !important;
     }
 
     .input-group {
       height: @minimumButtonSize;
       line-height: @minimumButtonSize;
+
+      > span.input-group-addon,
+      > label.input-group-addon {
+          font-weight: lighter;
+          opacity: @minimumOpacity;
+      }
 
       > span {
         min-width: 9.375rem;
@@ -119,86 +53,20 @@
 
     }
 
-    .input-group + .input-group:not(#usngdiv):not(#usngbbdiv):not(#utmdivEasting):not(#utmuldiv) {
-      border-top: none;
-    }
-
-    .input-group.for-hemisphere,
-    .input-group.for-zone,
-    .input-group.for-radius,
-    .input-group.for-line {
-
-      > input {
-        height: 100%;
-      }
-      > span.input-group-btn {
-        min-width: 0px;
-        button {
-          height: 100%;
-          text-align: center;
-          width: 10.125rem !important;
-        }
-      }
-    }
-
-  }
-
-  #keyword-autocomplete {
-    width: 80%;
-    .property-label {
-      display: none;
-    }
-  }
-
-  .col-lg-10 {
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
     max-width: 2 * @minimumScreenSize;
     float: none;
     width: 100%;
   }
+  .input-location {
+    border-radius: @border-radius;
+  }
 
-  .geo-types {
-    display: none;
+  .input-location + .input-location {
+    margin-top: 10px;
   }
 }
 
-@{customElementNamespace}location-old.is-editing {
-
-
-  .btn-group:hover {
-    label,
-    label.active {
-      opacity: @minimumOpacity;
-    }
-
-    label:hover,
-    label.active:hover {
-      opacity: 1;
-    }
-  }
-}
-
-@{customElementNamespace}location-old.is-bbox,
-@{customElementNamespace}location-old.is-circle {
-  .geo-types {
-    display: block;
-  }
-}
-
-@{customElementNamespace}location-old {
-  &.is-line,
-  &.is-bbox,
-  &.is-circle,
-  &.is-polygon {
-    .location-draw {
-      display: block;
-    }
-  }
-}
-
-@{customElementNamespace}location-old.is-uploadshape,
-@{customElementNamespace}location-old.is-keyword,
-@{customElementNamespace}location-old {
-  .location-draw {
-    display: none;
-  }
-}
+@import "./inputs/inputs.less";
