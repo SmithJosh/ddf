@@ -18,6 +18,11 @@
 
     <repository>mvn:ddf.features/apps/${project.version}/xml/features</repository>
 
+    <feature name="karaf-startup-installer" version="${project.version}"
+      description="Automated installer that removes itself when complete">
+        <bundle>mvn:ddf.platform/karaf-startup-installer/${project.version}</bundle>
+    </feature>
+
     <feature name="profile-standard" version="${project.version}"
              description="This will install the standard set of DDF applications." start-level="1">
         <feature>ddf-boot-features</feature>
